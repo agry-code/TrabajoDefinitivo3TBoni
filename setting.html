@@ -13,7 +13,7 @@
     }
   </style>
 </head>
-<script>cambiarFuente();</script>
+
 <body>
   <nav>
     <ul>
@@ -23,7 +23,6 @@
       <li><a href="./wordle/springfidle.html">Springfidle</a></li>
       <li><a href="./setting.html">Setting</a></li>
 
-
     <button id="myButton" class="fa-regular fa-file"></button>
   </nav>
 
@@ -31,8 +30,18 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <p style="color: black;">Adrian Navarro Gallardo 1DAM</p>
-      <p style="color: black;">Con el propósito de darle sentido a la pantalla de inicio. La ventana modal y los
-        ajustes solo estarán disponibles en el inicio </p>
+      <p style="color: black;">Entrega: Entregada a tiempo. Antes del Domingo</p>
+      <p style="color: black;">URL y adjunto: La URL debe dirigir a la página de inicio. Y se adjunta zip</p>
+      <p style="color: black;">Menú: El menu se ve en todas las páginas, dirige a todas y el emoticono muestra este modal.</p>
+      <p style="color: black;">Páginas: Hay página de inicio, ajustes y un par de juegos </p>
+      <p style="color: black;">Ajustes: Página con más de un elemento (modo noche y cambiar fuente) que se aplica a todas las páginas. Y se mantiene al recargar</p>
+      <p style="color: black;">Modal: Se muestra la rubrica cumplimentada y mi nombre </p>
+      <p style="color: black;">Familia XML: Correcto uso de XML y XSL </p>
+      <p style="color: black;">JavaScript: Lee, modifica en consola en varias páginas. Puede verse en Springfidle</p>
+      <p style="color: black;">HTML: Tiene varios elementos de entrada en Springfidle. También hay elementos de entrada en Setting como los botones o el nickname </p>
+      <p style="color: black;">Nombre viewport: Correcta implementación del requerimiento </p>
+      <p style="color: black;">Tal y  como pide la rúbrica se han cumplido todos los requerimientos con la máxima puntuación.</p>
+
     </div>
   </div>
 </ul>
@@ -42,16 +51,13 @@
   <br>
   <br>  
   <div>
-
     <input type="text" id="texto-input" placeholder="Como te llamas">
     <button onclick="almacenarEnSessionStorage(),mostrarTextoAlmacenado()">Guardar</button>
+  </div>
 
-    
   <div id="nombreUsuario"></div>
 
   <br>
-  <!-- Botón para cambiar el fondo de Springfield -->
-  <p id="demo">This is a paragraph.</p>
 
   <select onchange="myFunction(this);" size="13">
     <option>Georgia</option>
@@ -68,29 +74,43 @@
     <option>Courier New</option>
     <option>Lucida Console</option>
   </select>
-   
+
   <script>
-function myFunction(selectTag) {
-              var listValue = selectTag.options[selectTag.selectedIndex].text;
-              document.body.style.fontFamily = listValue;
-              localStorage.setItem('fuente',listValue);
-            }
+    function myFunction(selectTag) {
+      var listValue = selectTag.options[selectTag.selectedIndex].text;
+      document.body.style.fontFamily = listValue;
+      localStorage.setItem('fuente', listValue);
+    }
+
+    function mostrarTextoAlmacenado() {
+      var textoAlmacenado = sessionStorage.getItem('texto') || 'sin identificar';
+      var textoMostrado = document.getElementById('texto-mostrado');
+      textoMostrado.textContent = textoAlmacenado;
+
+      cambiarFuente(); // Llamada a la función cambiarFuente() para aplicar la fuente de letra almacenada
+    }
+
+    function cambiarFuente() {
+      var listValue = localStorage.getItem('fuente');
+      document.body.style.fontFamily = listValue;
+    }
+
+    mostrarTextoAlmacenado(); // Llamada inicial a la función mostrarTextoAlmacenado() para mostrar el texto almacenado
   </script>
-<script>cambiarFuente();</script>
 
   <div id="texto-mostrado"></div>
-  <script>function mostrarTextoAlmacenado() {
-    var textoAlmacenado = sessionStorage.getItem('texto') || 'sin identificar';
-    var textoMostrado = document.getElementById('texto-mostrado');
-    textoMostrado.textContent = textoAlmacenado;
-    
-    
-  }
-  mostrarTextoAlmacenado();</script>
   <script src="./main.js"></script>
   <script src="./modoNoche.js"></script>
   <script src="./nick.js"></script>
   <script src="./cambiarFondo.js"></script>
+  <script>
+    function cambiarFuente() {
+      var listValue = localStorage.getItem('fuente');
+      document.body.style.fontFamily = listValue;
+    }
+  
+    cambiarFuente(); // Llama a la función para establecer la fuente al cargar la página
+  </script>
 </body>
 
 </html>
