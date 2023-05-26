@@ -13,7 +13,7 @@
     }
   </style>
 </head>
-
+<script>cambiarFuente();</script>
 <body>
   <nav>
     <ul>
@@ -51,7 +51,33 @@
 
   <br>
   <!-- Botón para cambiar el fondo de Springfield -->
-  <button id="cambiarFondo">Cambiar fondo de Springfield</button>
+  <p id="demo">This is a paragraph.</p>
+
+  <select onchange="myFunction(this);" size="13">
+    <option>Georgia</option>
+    <option>Palatino Linotype</option>
+    <option>Book Antiqua</option>
+    <option>Times New Roman</option>
+    <option>Arial</option>
+    <option>Helvetica</option>
+    <option>Arial Black</option>
+    <option>Impact</option>
+    <option>Lucida Sans Unicode</option>
+    <option>Tahoma</option>
+    <option>Verdana</option>
+    <option>Courier New</option>
+    <option>Lucida Console</option>
+  </select>
+   
+  <script>
+function myFunction(selectTag) {
+              var listValue = selectTag.options[selectTag.selectedIndex].text;
+              document.body.style.fontFamily = listValue;
+              localStorage.setItem('fuente',listValue);
+            }
+  </script>
+<script>cambiarFuente();</script>
+
   <div id="texto-mostrado"></div>
   <script>function mostrarTextoAlmacenado() {
     var textoAlmacenado = sessionStorage.getItem('texto') || 'sin identificar';

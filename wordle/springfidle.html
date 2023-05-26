@@ -9,6 +9,7 @@
   <script src="https://kit.fontawesome.com/dc2ceecb89.js" crossorigin="anonymous"></script>
   <link rel="icon"
     href="./img/png-transparent-homer-simpson-bart-simpson-mr-burns-drooling-sideshow-bob-bart-simpson-food-springfield-cartoon-thumbnail.png">
+  
   <style>
 
     * {
@@ -207,8 +208,14 @@
   padding: 10px;
   background-color: #f0f0f0;
 }
+body.darkmode nav {
+  filter: invert(1);
+}
+
   </style>
 </head>
+<script>cambiarFuente();</script>
+
 <script>function mostrarTextoAlmacenado() {
   var textoAlmacenado = sessionStorage.getItem('texto') || 'sin identificar';
   var textoMostrado = document.getElementById('texto-mostrado');
@@ -257,9 +264,13 @@ mostrarTextoAlmacenado();</script>
   
 }
 mostrarTextoAlmacenado();</script>
+<script>cambiarFuente();</script>
 <script src="./wordle.js"></script>
 <script src="../main.js"></script>
 <script src="../nick.js"></script>
 <script src="../cambiarFondo.js"></script>
+<script src="../modoNoche.js"></script>
+<script>cambiarFuente();</script>
+
 </body>
 </html>

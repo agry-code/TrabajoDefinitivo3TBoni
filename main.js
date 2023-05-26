@@ -60,3 +60,7 @@ function mostrar() {
     localStorage.removeItem("nombreUsuario");
   });
 }
+function cambiarFuente(){
+  listValue=localStorage.getItem('fuente');
+  document.body.style.fontFamily = listValue;
+}
